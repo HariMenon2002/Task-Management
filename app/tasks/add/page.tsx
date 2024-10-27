@@ -4,8 +4,7 @@ import TaskForm from '@/components/TaskForm';
 const AddTask = () => {
   return (
     <div>
-      <h1>Add New Task</h1>
-      <TaskForm/>
+      <TaskForm type1="Add Task"/>
     </div>
   );
 };

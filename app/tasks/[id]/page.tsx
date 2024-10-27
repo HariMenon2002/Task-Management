@@ -21,11 +21,12 @@ const TaskDetails = () => {
             
         });
         const data = await response.json();
+        
         setTask(data);
       };
       fetchTask();
     }
-  }, [id]);
+  }, [id]); 
 
   const handleSave = () => {
     router.push('/tasks');
@@ -33,8 +34,8 @@ const TaskDetails = () => {
 
   return (
     <div>
-      <h1>{task ? 'Edit Task' : 'Loading...'}</h1>
-      {task && <TaskForm />}
+    
+      {task && <TaskForm type1="Modify Task"/>}
     </div>
   );
 };

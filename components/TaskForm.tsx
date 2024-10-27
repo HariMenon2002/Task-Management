@@ -33,7 +33,7 @@ export default function TaskForm() {
       body: JSON.stringify({ title, description, completed, id }), // Send all necessary fields
     });
 
-    router.push('/');
+    router.push('/tasks');
   };
 
   return (

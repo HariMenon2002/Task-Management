@@ -6,7 +6,7 @@ export default function SignOut() {
 
   const handleSignOut = () => {
     localStorage.removeItem('token'); // Clear the JWT token
-    router.push('/login'); // Redirect to the login page
+    router.push('/signin'); // Redirect to the login page
   };
 
   return <button onClick={handleSignOut}>Sign Out</button>;

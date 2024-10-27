@@ -1,9 +1,12 @@
+import ProtectedRoute from "@/components/ProtectedRoute";
+import SignOut from "@/components/SignOut";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
+    <ProtectedRoute>
       hi guys
-    </div>
+      <SignOut></SignOut>
+    </ProtectedRoute>
   );
 }

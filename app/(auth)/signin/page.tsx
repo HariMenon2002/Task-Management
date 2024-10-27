@@ -7,20 +7,22 @@ import React, { useEffect, useState } from 'react';
 const SignIn = () => {
   const [username,setUsername]=useState("");
   const [password,setPassword]=useState("");
+  const router=useRouter();
 
   const handleSubmit = async (e:any) => {
     e.preventDefault();
-    const router=useRouter();
+    //const router=useRouter();
     const response = await fetch(`/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
     });
-    const data = await response.json();
+    
     if (response.ok) {
       const data = await response.json();
       localStorage.setItem('token', data.token); // Store JWT token
       router.push("/tasks"); // Redirect to task list
+      
     } else {
       const errorData = await response.json();
       alert(errorData.error);

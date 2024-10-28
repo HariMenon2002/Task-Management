@@ -9,3 +9,6 @@ export default function Home() {
     </ProtectedRoute>
   );
 }
+
+/* ProtectedRoute is a component to check if user is signed in or not 
+*/

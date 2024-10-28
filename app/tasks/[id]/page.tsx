@@ -1,95 +1,3 @@
-// 'use client'
-// import React, { useEffect, useState } from 'react';
-// import TaskForm from '@/components/TaskForm';
-// import { useRouter,useParams } from 'next/navigation';
-
-// const TaskDetails = () => {
-//   const [task, setTask] = useState(null);
-//   const router = useRouter();
-//   const { id } = useParams();
-//   console.log(id);
-//   useEffect(() => {
-//     if (id) {
-//       const fetchTask = async () => {
-//         const token = localStorage.getItem('token');
-//         const response = await fetch(`../api/tasks/${id}`, {
-//             method:"GET",
-//             headers: {
-//               'Content-Type': 'application/json',
-//               'Authorization': `Bearer ${token}`,
-//             },
-            
-//         });
-//         const data = await response.json();
-        
-//         setTask(data);
-//       };
-//       fetchTask();
-//     }
-//   }, [id]); 
-
-//   const handleSave = () => {
-//     router.push('/tasks');
-//   };
-
-//   return (
-//     <div>
-    
-//       {task && <TaskForm type1="Modify Task"/>}
-//     </div>
-//   );
-// };
-
-// export default TaskDetails;
-
-// 'use client'
-// import React, { useEffect, useState } from 'react';
-// import TaskForm from '@/components/TaskForm';
-// import { useRouter, useParams } from 'next/navigation';
-
-// const TaskDetails = () => {
-//   const [task, setTask] = useState(null);
-//   const router = useRouter();
-//   const { id } = useParams();
-
-//   useEffect(() => {
-//     const fetchTask = async () => {
-//       const token = localStorage.getItem('token');
-//       if (!token) {
-//         // Redirect to login if no token is found
-//         router.push('/login');
-//         return;
-//       }
-
-//       const response = await fetch(`../api/tasks/${id}`, {
-//         method: "GET",
-//         headers: {
-//           'Content-Type': 'application/json',
-//           'Authorization': `Bearer ${token}`,
-//         },
-//       });
-
-//       const data = await response.json();
-//       setTask(data);
-//     };
-
-//     if (id) {
-//       fetchTask();
-//     }
-//   }, [id, router]);
-
-//   const handleSave = () => {
-//     router.push('/tasks');
-//   };
-
-//   return (
-//     <div>
-//       {task ? <TaskForm type1="Modify Task" /> : <p>Loading...</p>}
-//     </div>
-//   );
-// };
-
-// export default TaskDetails;
 
 'use client'
 import React, { useEffect, useState } from 'react';
@@ -108,7 +16,7 @@ const TaskDetails = () => {
     if (!token) {
       // Redirect to signin if no token is found
       router.push('/signin');
-      return; // Exit early
+      return; 
     } else {
       setIsAuthorized(true);
     }

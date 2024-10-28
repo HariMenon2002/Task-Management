@@ -5,6 +5,6 @@ export function checkAuth(handler: (req: NextRequest, context: any) => Promise<N
   return async (req: NextRequest, context: any) => {
     const authResult = await authenticate(req);
     if (authResult) return authResult; // Return the authentication error response if any
-    return handler(req, context); // Proceed to the handler if authentication is successful
+    return handler(req, context);
   };
 }

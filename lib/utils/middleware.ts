@@ -11,9 +11,8 @@ export async function authenticate(req: NextRequest) {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as jwt.JwtPayload;
-    //req.headers.set('userId', decoded.id);
     (req as any).userId = decoded.id;
-    //return NextResponse.next();  // Proceed to the next middleware or handler
+    //return NextResponse.next();  // NextResponse.next() does not work here
     return null;
   } catch  {
     return NextResponse.json({ message: 'Invalid token' }, { status: 401 });

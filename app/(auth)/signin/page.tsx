@@ -1,5 +1,6 @@
 'use client'
 import Header from '@/components/Header';
+import Spinner from '@/components/Spinner';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -7,10 +8,12 @@ import React, { useEffect, useState } from 'react';
 const SignIn = () => {
   const [username,setUsername]=useState("");
   const [password,setPassword]=useState("");
+  const[loading,setLoading]=useState(false);
   const router=useRouter();
 
   const handleSubmit = async (e:any) => {
     e.preventDefault();
+    setLoading(true);
     //const router=useRouter();
     const response = await fetch(`/api/auth/login`, {
       method: 'POST',
@@ -34,6 +37,7 @@ const SignIn = () => {
     <div className='w-full border-yellow-950 border-2 h-screen flex flex-col items-center bg-inherit'>
       <Header />
       <div className='w-full h-screen border-2 border-blue-700 flex flex-col justify-center items-center'>
+        {loading?(<Spinner/>):
         <form onSubmit={handleSubmit} className='border-black rounded-lg border-4 w-11/12 sm:w-3/4 md:w-1/3 h-auto flex flex-col box-border p-6'>
           <p className='text-center font-semibold text-3xl mb-6 text-blue-700'>Sign in</p>
 
@@ -64,6 +68,7 @@ const SignIn = () => {
             
           </div>
         </form>
+        }
       </div>
     </div>
   );

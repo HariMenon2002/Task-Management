@@ -15,7 +15,7 @@ export async function authenticate(req: NextRequest) {
     (req as any).userId = decoded.id;
     //return NextResponse.next();  // Proceed to the next middleware or handler
     return null;
-  } catch (err) {
+  } catch  {
     return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
   }
 }

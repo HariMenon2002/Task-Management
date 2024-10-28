@@ -136,7 +136,7 @@ const TaskInfo = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
-      // Redirect to signin if no token is found
+      
       router.push('/signin');
       return; // Exit early
     } else {
@@ -167,7 +167,7 @@ const TaskInfo = () => {
   }, [id]);
 
   if (!isAuthorized) {
-    return null; // Don't render if unauthorized
+    return null; 
   }
 
   if (!task) {

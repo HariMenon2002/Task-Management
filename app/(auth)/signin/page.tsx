@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Spinner from '@/components/Spinner';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const SignIn = () => {
   const [username,setUsername]=useState("");

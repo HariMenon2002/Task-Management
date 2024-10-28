@@ -137,12 +137,9 @@ const TaskDetails = () => {
   }, [id, router]);
 
   if (!isAuthorized) {
-    return null; // Don't render if unauthorized
+    return null; 
   }
 
-  const handleSave = () => {
-    router.push('/tasks');
-  };
 
   return (
     <div>

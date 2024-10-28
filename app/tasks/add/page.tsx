@@ -53,14 +53,14 @@ const AddTask = () => {
     if (!token) {
       // Redirect to signin if no token is found
       router.push('/signin');
-      return; // Exit early
+      return; 
     } else {
       setIsAuthorized(true);
     }
   }, [router]);
 
   if (!isAuthorized) {
-    return null; // Don't render if unauthorized
+    return null; 
   }
 
   return (

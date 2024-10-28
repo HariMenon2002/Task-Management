@@ -22,7 +22,6 @@
 
 import User from "@/lib/models/user.model";
 import { connectedToDB } from "@/lib/mongoose";
-import jwt from 'jsonwebtoken';
 import { NextResponse } from 'next/server';
 
 const USERNAME_REGEX = /^[a-zA-Z0-9]{3,30}$/; // Alphanumeric, 3-30 characters
@@ -48,13 +47,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: 'Username already taken' }, { status: 400 });
   }
 
-  // Create new user
+  
   const user = new User({ username, password });
   await user.save();
   
-  // Optionally, you can generate a token here
-  // const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
-  
+ 
   return NextResponse.json({ message: 'User registered successfully' });
 }
 

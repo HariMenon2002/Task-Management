@@ -198,7 +198,7 @@ const TaskList = () => {
   }, []);
 
   if (!isAuthorized) {
-    return null; // Don't render if unauthorized
+    return null; 
   }
 
   const handleDelete = async (id: string) => {
@@ -217,8 +217,8 @@ const TaskList = () => {
 
   const handleEdit = (id: string) => {
     setLoadingId(id); // Set loading state for the current task
-    router.push(`/tasks/${id}`); // Navigate to the edit page
-    setLoadingId(null); // Reset loading state (optional, as it is quick navigation)
+    router.push(`/tasks/${id}`); 
+    setLoadingId(null); // Reset loading state 
   };
 
   // Inline spinner component
